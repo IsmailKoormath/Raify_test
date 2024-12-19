@@ -4,6 +4,7 @@ import ip from "ip";
 import "dotenv/config";
 import { errorHandling } from "./middlewares/error.middleware.js";
 import { dbConnection } from "./config/dbConnection.js";
+import appointmentRoutes from "./routes/appointmentRoutes.js";
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(cors({ origin: true, credentials: true }));
 
 // app.use("/api/auth", authRoute);
 // app.use("/api/user", userRoute);
+app.use("/api/appointments", appointmentRoutes);
 
 app.use(errorHandling);
 
